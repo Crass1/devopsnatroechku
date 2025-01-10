@@ -28,3 +28,5 @@ kubectl apply -f
 Проверяем количетсво запущеных ReplicaSet
 
 kubectl get rs -A
+
+kubectl delete po nginx
