@@ -20,3 +20,5 @@ kubectl run nginx --image=nginx --namespace=test
 
 Получить список подов в неймспейсе production
 kubectl get pods --namespace=production
+
+kubectl -n production get po
