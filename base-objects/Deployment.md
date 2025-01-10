@@ -26,4 +26,5 @@ spec:
 kubectl apply -f
 
 Проверяем количетсво запущеных ReplicaSet
+
 kubectl get rs -A
