@@ -28,3 +28,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx
 
 
 kubectl get service --namespace ingress-nginx ingress-nginx-controller --output wide --watch
+
+
+kubectl -n ingress-nginx get all
+
