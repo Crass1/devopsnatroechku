@@ -23,6 +23,7 @@ helm repo update
 Установите NGINX Ingress Controller в пространство имен ingress-nginx:
 
 helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx
+
 Это установит Ingress Controller в Kubernetes с использованием Helm, и все компоненты будут размещены в указанном пространстве имен.
 
 
