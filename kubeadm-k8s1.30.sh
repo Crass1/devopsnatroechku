@@ -73,3 +73,11 @@ kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/
 # kubeadm token create <generated-token> --print-join-command --ttl=0
 sudo kubeadm join 10.128.0.28:6443 --token zvxm7y.z61zq4rzaq3rtipk \
         --discovery-token-ca-cert-hash sha256:9b650e50a7a5b6261746684d033a7d6483ea5b84db8932cb70563b35f91080f7
+
+
+Test
+kubectl run nginx --image nginx
+kubectl get po -A -o wide
+kubectl get po
+kubectl exec -it nginx --bash
+curl localhost -I
