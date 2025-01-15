@@ -41,15 +41,20 @@ kubectl create secret tls my-tls-secret --cert=tls.crt --key=tls.key
 
 
 kubectl get secret my-tls-secret -o yaml
+
 Вы увидите его содержимое в кодировке Base64. Для расшифровки данных и проверки содержимого, можно использовать base64:
 
 
 # Для сертификата
+
 echo <base64-encoded-cert> | base64 --decode
 
 # Для приватного ключа
+
 echo <base64-encoded-key> | base64 --decode
+
 Применение TLS-секрета с Ingress
+
 Для использования созданного TLS-секрета в Ingress, вы должны указать секрет в манифесте Ingress. Пример использования в конфигурации Ingress:
 
 
