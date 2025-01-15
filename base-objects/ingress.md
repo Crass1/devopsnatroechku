@@ -32,3 +32,45 @@ kubectl get service --namespace ingress-nginx ingress-nginx-controller --output 
 
 kubectl -n ingress-nginx get all
 
+----
+kubectl create secret tls my-tls-secret --cert=tls.crt --key=tls.key
+-----
+
+Проверка секрета
+После того как секрет был создан, вы можете проверить его:
+
+
+kubectl get secret my-tls-secret -o yaml
+Вы увидите его содержимое в кодировке Base64. Для расшифровки данных и проверки содержимого, можно использовать base64:
+
+
+# Для сертификата
+echo <base64-encoded-cert> | base64 --decode
+
+# Для приватного ключа
+echo <base64-encoded-key> | base64 --decode
+Применение TLS-секрета с Ingress
+Для использования созданного TLS-секрета в Ingress, вы должны указать секрет в манифесте Ingress. Пример использования в конфигурации Ingress:
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  namespace: default
+spec:
+  tls:
+  - hosts:
+    - example.com
+    secretName: my-tls-secret  # Имя секрета с сертификатом и ключом
+  rules:
+  - host: example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: my-service
+            port:
+              number: 80
