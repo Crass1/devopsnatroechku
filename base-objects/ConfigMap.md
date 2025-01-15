@@ -40,7 +40,7 @@ kubectl create configmap my-config --from-literal=key1=value1 --from-literal=key
 
 yaml
 Copy code
-'''
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -49,7 +49,7 @@ data:
   app-config.txt: |
     key1=value1
     key2=value2
-'''
+
 Для создания ConfigMap из этого YAML файла используйте команду:
 
 bash
