@@ -14,3 +14,6 @@ spec:
 
 Команда для создания пода из файла/интернета
 kubectl apply -f https://k8s.io/examples/pods/simple-pod.yaml
+
+
+kubectl get all
