@@ -30,3 +30,6 @@ kubectl apply -f
 kubectl get rs -A
 
 kubectl delete po nginx
+
+kubectl get deployments.apps
+
