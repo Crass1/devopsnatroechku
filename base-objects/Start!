@@ -1,0 +1,11 @@
+sudo swapoff -a
+sudo sed -i '/swap/d' /etc/fstab
+
+DNS
+/etc/hosts
+
+192.168.77.19 k8s-cp01
+192.168.77.20 k8s-w01
+192.168.77.21 k8s-cp02
+192.168.77.22 k8s-cp03
+192.168.77.23 k8s-w02
