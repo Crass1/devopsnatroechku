@@ -2,7 +2,7 @@ sudo swapoff -a
 sudo sed -i '/swap/d' /etc/fstab
 
 DNS
-/etc/hosts
+sudo nano /etc/hosts
 
 192.168.77.19 k8s-cp01
 192.168.77.20 k8s-w01
