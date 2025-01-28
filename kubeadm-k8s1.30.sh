@@ -81,3 +81,8 @@ kubectl get po -A -o wide
 kubectl get po
 kubectl exec -it nginx --bash
 curl localhost -I
+
+reset k8s
+sudo kubeadm reset
+sudo rm -rf /etc/kubernetes/
+sudo rm -rf $HOME/.kube/
