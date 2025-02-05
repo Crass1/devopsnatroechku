@@ -1,0 +1,20 @@
+Проверьте срок действия сертификатов
+
+openssl x509 -in /etc/kubernetes/pki/apiserver.crt -noout -enddate
+openssl x509 -in /etc/kubernetes/pki/ca.crt -noout -enddate
+
+kubeadm certs renew all
+kubeadm certs renew all
+
+
+
+
+
+Проверь, что сертификаты kubelet актуальны:
+
+ls -lah /var/lib/kubelet/pki
+и попробуй перегенерировать:
+
+
+kubeadm certs renew all
+systemctl restart kubelet
