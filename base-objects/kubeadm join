@@ -1,0 +1,14 @@
+создаём на рабочей CP
+kubeadm token create --print-join-command
+--------------------------------------------
+для воркера
+kubeadm join 192.168.77.25:6443 --token 236rix.8jnmbtfekdxty8gn --discovery-token-ca-cert-hash sha256:36b9fc2e17691420a80b1c588841b6de84402eb50be7fdecf24a99331d35f9b0
+----------------------------------------------
+для CP new
+
+kubeadm init phase upload-certs --upload-certs   (получим certificate-key)
+
+и готовим
+kubeadm join 192.168.77.25:6443 --token 236rix.8jnmbtfekdxty8gn --discovery-token-ca-cert-hash sha256:36b9fc2e17691420a80b1c588841b6de84402eb50be7fdecf24a99331d35f9b0 --control-plane --certificate-key 22bbe4a4376c928f3768a312b18115c01290804bd448f9c7db9fb0098765e8d0
+
+----------------------------------
