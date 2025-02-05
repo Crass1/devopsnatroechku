@@ -1,10 +1,11 @@
 Сброс текущего состояния кластера
 
 
-sudo kubeadm reset
+sudo kubeadm reset -f
+
 sudo systemctl stop kubelet
 sudo systemctl stop containerd  # Если используется containerd вместо Docker
-sudo kubeadm reset
+
 sudo rm -rf /etc/kubernetes/
 sudo rm -rf $HOME/.kube/
 sudo rm -rf /etc/kubernetes/manifests/kube-apiserver.yaml
@@ -12,18 +13,13 @@ sudo rm -rf /etc/kubernetes/manifests/kube-controller-manager.yaml
 sudo rm -rf /etc/kubernetes/manifests/kube-scheduler.yaml
 sudo rm -rf /etc/kubernetes/manifests/etcd.yaml
 sudo rm -rf /var/lib/etcd/*
+sudo rm -rf /etc/cni /var/lib/cni /var/lib/etcd /var/lib/kubelet /etc/kubernetes /opt/cni
+
 sudo systemctl start containerd
 
+---
+на cp
 
-kubeadm join 192.168.77.25:6443 --token abcdef.0123456789abcdef \
-        --discovery-token-ca-cert-hash sha256:36b9fc2e17691420a80b1c588841b6de84402eb50be7fdecf24a99331d35f9b0 \
-        --control-plane --certificate-key faa81cf4b0c990d9e4309cbfc03acad305d74d6eae5611daa1826eee77a972c2
+kubectl delete node k8s-w01
 
-Please note that the certificate-key gives access to cluster sensitive data, keep it secret!
-As a safeguard, uploaded-certs will be deleted in two hours; If necessary, you can use
-"kubeadm init phase upload-certs --upload-certs" to reload certs afterward.
-
-Then you can join any number of worker nodes by running the following on each as root:
-
-kubeadm join 192.168.77.25:6443 --token abcdef.0123456789abcdef \
-        --discovery-token-ca-cert-hash sha256:36b9fc2e17691420a80b1c588841b6de84402eb50be7fdecf24a99331d35f9b0
+----------
