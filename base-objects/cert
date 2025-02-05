@@ -18,3 +18,13 @@ ls -lah /var/lib/kubelet/pki
 
 kubeadm certs renew all
 systemctl restart kubelet
+
+
+
+Проверка в Kubernetes
+После того как вы проверили сертификаты на всех уровнях, также можно использовать kubectl для проверки конфигурации в Kubernetes:
+
+
+kubectl get secrets -n kube-system
+kubectl describe secret <имя секрета> -n kube-system
+Это поможет вам удостовериться, что секреты, которые используют сертификаты, корректно настроены.
