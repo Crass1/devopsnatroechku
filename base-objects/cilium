@@ -1,3 +1,10 @@
+helm repo add cilium https://helm.cilium.io/
+helm repo update
+helm install cilium cilium/cilium --namespace kube-system --create-namespace
+kubectl get pods -n kube-system -l k8s-app=cilium
+cilium status
+
+cilium CTL
 curl -L https://github.com/cilium/cilium-cli/releases/download/v0.16.24/cilium-linux-amd64.tar.gz -o cilium.tar.gz
 tar -xvf cilium.tar.gz
 sudo mv cilium /usr/local/bin/
