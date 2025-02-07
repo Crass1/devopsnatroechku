@@ -1,0 +1,4 @@
+curl -L https://github.com/cilium/cilium-cli/releases/download/v0.16.24/cilium-linux-amd64.tar.gz -o cilium.tar.gz
+tar -xvf cilium.tar.gz
+sudo mv cilium /usr/local/bin/
+cilium status
